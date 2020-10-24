@@ -27,7 +27,7 @@ The first three files contain training, validation, and testing data for the col
 
 The four additional files consist of supplementary data for each track (item) in the dataset.  
 
-## Basic recommender system [80% of grade]
+## Basic recommender system 
 
 Our recommendation model uses Spark's alternating least squares (ALS) method to learn latent factor representations for users and items.  This model has some hyper-parameters thatwe tune to optimize performance on the validation set, notably: 
 
@@ -37,7 +37,7 @@ Our recommendation model uses Spark's alternating least squares (ALS) method to 
   
 Evaluations are based on predictions of the top 500 items for each user.
 
-## Extensions [20% of grade]
+## Extensions 
   - *Alternative model formualtions*: the `AlternatingLeastSquares` model in Spark implements a particular form of implicit-feedback modeling, but you could change its behavior by modifying the count data.  Conduct a thorough evaluation of different modification strategies (e.g., log compression, or dropping low count values) and their impact on overall accuracy.
   - *Fast search*: use a spatial data structure (e.g., LSH or partition trees) to implement accelerated search at query time.  For this, it is best to use an existing library such as `annoy` or `nmslib`, and you will need to export the model parameters from Spark to work in your chosen environment.  For full credit, you should provide a thorough evaluation of the efficiency gains provided by your spatial data structure over a brute-force search method.
  
